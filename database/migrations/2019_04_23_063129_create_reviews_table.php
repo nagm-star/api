@@ -1,9 +1,7 @@
 <?php
-
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-
 class CreateReviewsTable extends Migration
 {
     /**
@@ -14,8 +12,9 @@ class CreateReviewsTable extends Migration
     public function up()
     {
         Schema::create('reviews', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->integer('product_id')->unsigned()->index();
+
+            $table->increments('id');
+            $table->bigInteger('product_id')->unsigned()->index();
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->string('customer');
             $table->text('review');
@@ -23,7 +22,6 @@ class CreateReviewsTable extends Migration
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *
