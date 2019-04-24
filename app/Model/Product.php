@@ -1,13 +1,12 @@
 <?php
-
 namespace App\Model;
-
+use App\Model\Review;
 use Illuminate\Database\Eloquent\Model;
-
 class Product extends Model
 {
-    public function reviiews()
+
+    public function reviews()
     {
-        return $this->hasMany(Review::class);
+    	return $this->hasMany(Review::class);
     }
 }
